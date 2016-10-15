@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="cssFiles/normalize.css">
+        
+        
+        
+        <!-- ######### JQUERY LINK ##########-->
+        <script type="text/javascript" src="javascriptFiles/jquery.1.10.2.min.js"></script>
+        
+        <!-- ######### BOOTSTRAP CDN ##########-->
+        
+        <!-- Latest compiled and minified CSS -->
+        <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cosmo/bootstrap.min.css" rel="stylesheet" integrity="sha384-h21C2fcDk/eFsW9sC9h0dhokq5pDinLNklTKoxIZRUn3+hvmgQSffLLQ4G4l2eEr" crossorigin="anonymous">
+
+        <!-- Optional theme 
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"> -->
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        
+        <!-- ######### END BOOTSTRAP CDN ########## -->
+        
+        <title>Get Rowdy</title>
+        
+<!--        <link rel="stylesheet" href="cssFiles/main.css">-->
+        
+<!--
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
+-->
+        
+    </head>
+    <body>
+        <header>
+            <div id= "title">
+                <h1>Program</h1>
+                <h2>Total claps: </h2>
+            </div>
+            <section>
+
+            </section>
+        </header>
+        
+        <div class="panel panel">
+            <!-- Default panel contents -->
+            <div class="panel-heading">Panel heading</div>
+            <div class="panel-body">
+             <p>Clap Counts:</p>
+             </div>
+            <div class="jumbotron">
+              
+            </div>
+            <!-- Table -->
+            <table class="table table-striped">>
+                <thead> <tr> <th>#</th> <th>First Name</th><th>Number of Claps</th> </tr> </thead>
+                <tbody> <tr> <th scope="row">1</th> <td>Mark</td> <td>@mdo</td> </tr> <tr> <th scope="row">2</th> <td>Jacob</td>  <td>@fat</td> </tr> <tr> <th scope="row">3</th> <td>Larry</td> <td>@twitter</td> </tr> </tbody>
+                
+                
+                
+                <div class="panel">
+                    Watch 1 clap count: 
+                    <div id="watch1">...</div>
+                </div>
+                <div class="panel">
+                    Watch 2 clap count: 
+                    <div id="watch2">...</div>
+                </div>
+                <div class="panel">
+                    Watch 3 clap count: 
+                    <div id="watch3">...</div>
+                </div>
+            </table>
+        </div>
+        
+        
+        
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="input-group">
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="button" onclick="writeUserData">Go!</button>
+              </span>
+              <input type="text" class="form-control" placeholder="Search for...">
+            </div><!-- /input-group -->
+          </div><!-- /.col-lg-6 -->
+        </div>
+        
+        <div id="wrapper">
+            <section>
+                <p></p>
+            </section>
+            <footer>
+                <!-- ######### FIREBASE CDN ###########-->
+        
+                <script src="https://www.gstatic.com/firebasejs/3.5.0/firebase.js"></script>
+                <script>
+                  // Initialize Firebase
+                  var config = {
+                    apiKey: "AIzaSyDV1KC655KHSNbdgqwjeyZphSWfsNxtkx8",
+                    authDomain: "firstfirebaseproj-5ae73.firebaseapp.com",
+                    databaseURL: "https://firstfirebaseproj-5ae73.firebaseio.com",
+                    storageBucket: "firstfirebaseproj-5ae73.appspot.com",
+                    messagingSenderId: "724069672672"
+                  };
+                  firebase.initializeApp(config);
+                </script>
+                <!-- ######### END FIREBASE CDN ###########-->
+                <script>
+                    var database = firebase.database(); // Get a reference to the database service
+
+                    //Declares clap count elements
+                    var pebble1 = document.getElementById("watch1");
+                    var pebble2 = document.getElementById("watch2");
+                    var pebble3 = document.getElementById("watch3");
+
+                    //Creates references for each watch clap data
+                    var dbRef1 = database.ref().child('claps1');
+                    var dbRef2 = database.ref().child('claps2');
+                    var dbRef3 = database.ref().child('claps3');
+
+                    //Changes the clap count element values to the corresponding firebase values
+                    dbRef1.on('value', snap => pebble1.innerText = snap.val());
+                    dbRef2.on('value', snap => pebble2.innerText = snap.val());
+                    dbRef3.on('value', snap => pebble3.innerText = snap.val());
+
+
+        //            function writeUserData(number) {
+        //                firebase.database().ref('users/' + userId).set({
+        //                    userNumber: number
+        //                });
+        //            };
+        //            
+                </script>
+            </footer> 
+        </div>
+    </body>
+</html>
