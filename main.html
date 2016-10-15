@@ -27,8 +27,6 @@
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-        <!-- Optional theme -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
@@ -37,18 +35,18 @@
         
         <title>Get Rowdy</title>
         
-<!--        <link rel="stylesheet" href="cssFiles/main.css">-->
+        <link rel="stylesheet" href="cssFiles/normalize.css">
+        <link rel="stylesheet" href="cssFiles/main.css">
         
-<!--
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
--->
+        
+        <link href="https://fonts.googleapis.com/css?family=Press+Start+2P|Slackey" rel="stylesheet">
         
     </head>
     <body>
         <header>
             <div id= "title">
-                <h1>Program</h1>
+                <h1>GET ROWDY</h1>
                 <h2>Total claps: </h2>
             </div>
             <section>
@@ -67,15 +65,15 @@
             <table class="table">
                 <div class="panel">
                     Watch 1 clap count: 
-                    <div id="watch1">...</div>
+                    <div id="watch1" class="watchStats">...</div>
                 </div>
                 <div class="panel">
                     Watch 2 clap count: 
-                    <div id="watch2">...</div>
+                    <div id="watch2" class="watchStats">...</div>
                 </div>
                 <div class="panel">
                     Watch 3 clap count: 
-                    <div id="watch3">...</div>
+                    <div id="watch3" class="watchStats">...</div>
                 </div>
             </table>
         </div>
@@ -106,18 +104,6 @@
 //            };
 //            
         </script>
-        
-        
-        <div class="row">
-          <div class="col-lg-6">
-            <div class="input-group">
-              <span class="input-group-btn">
-                <button class="btn btn-default" type="button" onclick="writeUserData">Go!</button>
-              </span>
-              <input type="text" class="form-control" placeholder="Search for...">
-            </div><!-- /input-group -->
-          </div><!-- /.col-lg-6 -->
-        </div>
         
         <div id="wrapper">
             <section>
