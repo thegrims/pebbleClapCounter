@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="cssFiles/normalize.css">
+        
+        <!-- ######### FIREBASE CDN ###########-->
+        
+        <script src="https://www.gstatic.com/firebasejs/3.5.0/firebase.js"></script>
+        <script>
+          // Initialize Firebase
+          var config = {
+            apiKey: "AIzaSyDV1KC655KHSNbdgqwjeyZphSWfsNxtkx8",
+            authDomain: "firstfirebaseproj-5ae73.firebaseapp.com",
+            databaseURL: "https://firstfirebaseproj-5ae73.firebaseio.com",
+            storageBucket: "firstfirebaseproj-5ae73.appspot.com",
+            messagingSenderId: "724069672672"
+          };
+          firebase.initializeApp(config);
+        </script>
+        <!-- ######### END FIREBASE CDN ###########-->
+        
+        <!-- ######### JQUERY LINK ##########-->
+        <script type="text/javascript" src="javascriptFiles/jquery.1.10.2.min.js"></script>
+        
+        <!-- ######### BOOTSTRAP CDN ##########-->
+        
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        
+        <!-- ######### END BOOTSTRAP CDN ########## -->
+        
+        <title>Get Rowdy</title>
+        
+<!--        <link rel="stylesheet" href="cssFiles/main.css">-->
+        
+<!--
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
+-->
+        
+        <script>
+            var database = firebase.database(); // Get a reference to the database service
+            
+            
+            function writeUserData(number) {
+                firebase.database().ref('users/' + userId).set({
+                    userNumber: number
+                });
+            }
+            
+        </script>
+        
+    </head>
+    <body>
+        <header>
+            <div id= "title">
+                <h1>Program</h1>
+                <h2>Total claps: </h2>
+            </div>
+            <section>
+
+            </section>
+        </header>
+        
+        <div class="panel panel-default">
+            <!-- Default panel contents -->
+            <div class="panel-heading">Panel heading</div>
+            <div class="panel-body">
+             <p>...</p>
+             </div>
+
+            <!-- Table -->
+            <table class="table">
+                <div class="panel panel-primary">...</div>
+                <div class="panel panel-success">...</div>
+                <div class="panel panel-info">...</div>
+            </table>
+        </div>
+        
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="input-group">
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="button" onclick="writeUserData">Go!</button>
+              </span>
+              <input type="text" class="form-control" placeholder="Search for...">
+            </div><!-- /input-group -->
+          </div><!-- /.col-lg-6 -->
+        </div>
+        
+        <div id="wrapper">
+            <section>
+                <p></p>
+            </section>
+            <footer>
+                
+            </footer> 
+        </div>
+    </body>
+</html>
