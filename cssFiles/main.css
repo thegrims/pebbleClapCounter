@@ -21,9 +21,10 @@ body {
 
 h1 {
 /*    font-family: 'Audiowide', cursive;*/
-    text-align: center;
     font-size: 6em;
+    font-weight: bold;
     color: black;
+    text-align: center;
     
 /*
     animation: rowdy;
@@ -38,6 +39,62 @@ h1 {
 
 .watchStats {
 /*    font-family: 'Press Start 2P', cursive;*/
-
+    font-weight: bold;
     font-size: 2em;
+}
+
+.watchStatsHead {
+/*    font-family: 'Press Start 2P', cursive;*/
+    font-weight: bold;
+    font-size: 2.4em;
+    text-align: right;
+    color:black;
+}
+
+/*************** USER COLORS ******************/
+
+.playerColor1 {
+    background-color: limegreen;
+}
+.playerColor2 {
+    background-color: deepskyblue;
+}
+.playerColor3 {
+    background-color: coral;
+}
+.playerColor4 {
+    background-color: mediumpurple;
+}
+.playerColor5 {
+    background-color: rgb(255, 204, 0);
+}
+.playerColor6 {
+    background-color: aquamarine;
+}
+.playerColor7 {
+    background-color: hotpink;
+}
+.playerColor8 {
+    background-color: chocolate;
+}
+.playerColor9 {
+    background-color: grey;
+}
+.playerColor10 {
+    background-color: lightcoral;
+}
+.playerColor11 {
+    background-color: lightgreen;
+}
+.playerColor12 {
+    background-color: darkcyan;
+}
+.playerColor13 {
+    background-color: grey;
+}
+.playerColor14 {
+    background-color: sandybrown;
+}
+.playerColor15 {
+    background-color: salmon;
 }
