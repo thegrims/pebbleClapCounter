@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="cssFiles/normalize.css">
         
-               
-        
-        <!-- ######### JQUERY LINK ##########-->
-        <script type="text/javascript" src="javascriptFiles/jquery.1.10.2.min.js"></script>
-        
+        <!-- ######### JQUERY LINK ##########
+        <script type="text/javascript" src="javascriptFiles/jquery.1.10.2.min.js"></script> -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <!-- ######### BOOTSTRAP CDN ##########-->
         
         <!-- Latest compiled and minified CSS -->
@@ -21,71 +18,67 @@
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         
-        <!-- ######### END BOOTSTRAP CDN ########## -->
+        
+        <!-- ######### CSS STYLING ########## -->
+        
+        <link rel="stylesheet" href="cssFiles/normalize.css">
+        <link rel="stylesheet" href="cssFiles/main.css">
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Press+Start+2P|Audiowide" rel="stylesheet">
         
         <title>Get Rowdy</title>
         
-<!--        <link rel="stylesheet" href="cssFiles/main.css">-->
-        
 <!--
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        
         <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
 -->
         
     </head>
     <body>
         <header>
+<!--
             <div id= "title">
                 <h1>Program</h1>
-                <h2>Total claps: </h2>
             </div>
-            <section>
-
-            </section>
+-->
         </header>
         
         <div class="panel panel">
-            <!-- Default panel contents -->
-            <div class="panel-heading">Panel heading</div>
-            <div class="panel-body">
-             <p>Clap Counts:</p>
-             </div>
-            <div class="jumbotron">
-              
+            
+            <div id="title">
+                <h1>Clap Comp</h1>
             </div>
-            <!-- Table -->
-            <table class="table table-striped">>
-                <thead> <tr> <th>#</th> <th>First Name</th><th>Number of Claps</th> </tr> </thead>
-                <tbody> <tr> <th scope="row">1</th> <td>Mark</td> <td>@mdo</td> </tr> <tr> <th scope="row">2</th> <td>Jacob</td>  <td>@fat</td> </tr> <tr> <th scope="row">3</th> <td>Larry</td> <td>@twitter</td> </tr> </tbody>
-                
-                
-                
-                <div class="panel">
-                    Watch 1 clap count: 
-                    <div id="watch1">...</div>
-                </div>
-                <div class="panel">
-                    Watch 2 clap count: 
-                    <div id="watch2">...</div>
-                </div>
-                <div class="panel">
-                    Watch 3 clap count: 
-                    <div id="watch3">...</div>
-                </div>
-            </table>
-        </div>
-        
-        
-        
-        <div class="row">
-          <div class="col-lg-6">
-            <div class="input-group">
-              <span class="input-group-btn">
-                <button class="btn btn-default" type="button" onclick="writeUserData">Go!</button>
-              </span>
-              <input type="text" class="form-control" placeholder="Search for...">
-            </div><!-- /input-group -->
-          </div><!-- /.col-lg-6 -->
+            
+            <table class="table table-striped table-hover ">
+              <thead class="watchStats">
+                <tr>
+                  <th>#</th>
+                  <th>Player Name</th>
+                  <th>Clapping Speed</th>
+                  <th>Total Claps</th>
+                </tr>
+              </thead>
+              <tbody class="watchStats">
+                <tr class="success">
+                  <td>1</td>
+                  <td>Aidan</td>
+                  <td>0</td>
+                  <td id="watch1">Column content</td>
+                </tr>
+                <tr class="danger">
+                  <td>2</td>
+                  <td>Bear</td>
+                  <td>0</td>
+                  <td id="watch2">Column content</td>
+                </tr>
+                <tr class="info">
+                  <td>3</td>
+                  <td>Aiden</td>
+                  <td>0</td>
+                  <td id="watch3">Column content</td>
+                </tr>
+              </tbody>
+            </table> 
         </div>
         
         <div id="wrapper">
@@ -108,7 +101,22 @@
                   firebase.initializeApp(config);
                 </script>
                 <!-- ######### END FIREBASE CDN ###########-->
+<!--
                 <script>
+                    function addtableitem()
+                    {
+                        $('#mywatchStats').append('<tr class="success"><td>1</td><td>Aidan</td><td>0</td><td id="watch1">Column content</td></tr>');
+                    }
+                </script>
+-->
+                <script>
+                    
+                    /*$('#watchStats').append(<tr class="success">
+                      <td>1</td>
+                      <td>Aidan</td>
+                      <td>0</td>
+                      <td id="watch1">Column content</td>
+                    </tr>)*/
                     var database = firebase.database(); // Get a reference to the database service
 
                     //Declares clap count elements
