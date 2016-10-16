@@ -28,11 +28,6 @@
         
         <title>Get Rowdy</title>
         
-<!--
-        
-        <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
--->
-        
     </head>
     <body>
         <header>
@@ -46,12 +41,12 @@
         <div class="panel panel">
             
             <div id="title">
-                <h1>Clap Comp</h1>
+                <h1>GameDay Noise</h1>
             </div>
             
-            <table class="table table-striped table-hover ">
-              <thead class="watchStats">
-                <tr>
+            <table class="table table-hover " id="myTable">
+              <thead>
+                <tr class="watchStatsHead">
                   <th>#</th>
                   <th>Player Name</th>
                   <th>Clapping Speed</th>
@@ -59,24 +54,14 @@
                 </tr>
               </thead>
               <tbody class="watchStats">
+<!--
                 <tr class="success">
                   <td>1</td>
                   <td>Aidan</td>
                   <td>0</td>
                   <td id="watch1">Column content</td>
                 </tr>
-                <tr class="danger">
-                  <td>2</td>
-                  <td>Bear</td>
-                  <td>0</td>
-                  <td id="watch2">Column content</td>
-                </tr>
-                <tr class="info">
-                  <td>3</td>
-                  <td>Aiden</td>
-                  <td>0</td>
-                  <td id="watch3">Column content</td>
-                </tr>
+-->
               </tbody>
             </table> 
         </div>
@@ -101,14 +86,31 @@
                   firebase.initializeApp(config);
                 </script>
                 <!-- ######### END FIREBASE CDN ###########-->
-<!--
+
                 <script>
-                    function addtableitem()
+                    function addTableItem(name, dn, cv) // dn = data number, cv = clap value
                     {
-                        $('#mywatchStats').append('<tr class="success"><td>1</td><td>Aidan</td><td>0</td><td id="watch1">Column content</td></tr>');
+                        var rand1 = Math.floor((Math.random() * 15) + 1);
+                        var clapSpeed = 4;
+
+                        // Find a <table> element with id="myTable":
+                        //var table = document.getElementById("myTable");
+
+                        // Create an empty <tr> element and add it to the 1st position of the table:
+                        //var row = table.insertRow(0);
+
+                        // Insert new cells (<td> elements) at the 1st and 2nd position of the "new" <tr> element:
+                        //var cell1 = row.insertCell(0);
+                        //var cell2 = row.insertCell(1);
+
+                        // Add some text to the new cells:
+                        //cell1.innerHTML = "NEW CELL1";
+                        //cell2.innerHTML = "NEW CELL2";
+                        
+                        $('#myTable').append('<tr class="playerColor' + dn + ' id="watch' + dn + '"><td>' + dn + '</td><td>' + name + '</td><td>' + clapSpeed + ' claps/min</td><td id="watch1">' + cv +'</td></tr>');/**/
                     }
                 </script>
--->
+
                 <script>
                     
                     /*$('#watchStats').append(<tr class="success">
@@ -117,22 +119,60 @@
                       <td>0</td>
                       <td id="watch1">Column content</td>
                     </tr>)*/
+                    var count = 0;
                     var database = firebase.database(); // Get a reference to the database service
+                    var playerName = "Johny Bravo";
 
-                    //Declares clap count elements
-                    var pebble1 = document.getElementById("watch1");
-                    var pebble2 = document.getElementById("watch2");
-                    var pebble3 = document.getElementById("watch3");
+                    database.ref().on("child_added", function(snap) {
+                      count++;
+                      addTableItem(playerName, count, snap.val());
+                    });
 
-                    //Creates references for each watch clap data
-                    var dbRef1 = database.ref().child('claps1');
-                    var dbRef2 = database.ref().child('claps2');
-                    var dbRef3 = database.ref().child('claps3');
-
-                    //Changes the clap count element values to the corresponding firebase values
-                    dbRef1.on('value', snap => pebble1.innerText = snap.val());
-                    dbRef2.on('value', snap => pebble2.innerText = snap.val());
-                    dbRef3.on('value', snap => pebble3.innerText = snap.val());
+                    // length will always equal count, since snap.val() will include every child_added event
+                    // triggered before this point
+                    
+//                    ref.once("value", function(snap) {
+//                      console.log("initial data loaded!", snap.numChildren() === count);
+//                    });
+//                    
+                    //database.ref().on('child_added', snap => console.log(snap.val()));
+                    
+//                    database.ref().on('child_added', snap => addtableitem(playerName, dataNum, snap.val()));
+//                    database.ref().on('child_added', snap => {
+//                        addTableItem(dataNum, snap.val());
+//                    }
+                    
+//                    var dbRef = new Array(3);
+//                    var temp = "";
+                    
+//                    for ( var i = 0 ; i < 3 ; i++)
+//                    {
+//                        dbRef[i] = database.ref().child('claps'+i.toString());
+////                        dbRef[i].on('value', snap => temp = snap.val());
+//                        console.log("temp var:" + temp);
+//                        
+//                        $('#myTable').append('<tr class="success"><td>1</td><td>Aidan</td><td>0</td><td id="watch1">'+ "Woop" +'</td></tr>');
+//                        
+//                        dbRef[i].on('value', snap => console.log(snap.val()));
+//                        dbRef[i].on('value', snap => $('#watch1').innerHTML = snap.val());
+//                    }
+                    
+                    
+                    
+//                    //Declares clap count elements
+//                    var pebble1 = document.getElementById("watch1");
+//                    var pebble2 = document.getElementById("watch2");
+//                    var pebble3 = document.getElementById("watch3");
+//
+//                    //Creates references for each watch clap data
+//                    var dbRef1 = database.ref().child('claps1');
+//                    var dbRef2 = database.ref().child('claps2');
+//                    var dbRef3 = database.ref().child('claps3');
+//
+//                    //Changes the clap count element values to the corresponding firebase values
+//                    dbRef1.on('value', snap => pebble1.innerText = snap.val());
+//                    dbRef2.on('value', snap => pebble2.innerText = snap.val());
+//                    dbRef3.on('value', snap => pebble3.innerText = snap.val());
 
 
         //            function writeUserData(number) {
